@@ -1,0 +1,68 @@
+{%extends './base.html' %}
+
+{%block title%}
+Iniciar sesión
+{%endblock%}
+
+{%block body%}
+
+<body class="body-login">
+    <div class="cabecera" id="cabecera">
+        <div class="container">
+            <div class="item">
+                <a href="https://telcore.co/">
+                    <img class="logologin" src="../../static/img/LogoTelcore-1.png" alt="">
+                </a>
+                <div class="text-item">
+                    <h2>¡Bien venidos! <br>
+                        <p class="plogo">Al portal de empleados de telcore</p>
+                        <p class="plogo">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Unde architecto officiis laudantium provident nisi beatae.</p>
+                    </h2>
+                </div>
+            </div>
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+            <br />
+            {% for message in messages %}
+            <div class="alert alert-primary alert-dismissible" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            {% endwith %}
+            <div class="login-section">
+                <div class="form-box login">
+                    <form action="/login" method="POST">
+                        <h2>INICIAR SESIÓN</h2>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-regular fa-user"></i></span>
+                            <input class="input_login-register" type="text" name="NDI" required placeholder="">
+                            <label>Número de documento</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon" id="icon-eye"><i id="eye" class="fa-regular fa-eye-slash"></i></span>
+                            <input class="input_login-register" id="password" type="password" name="password" required
+                                placeholder="">
+                            <label>Contraseña</label>
+                        </div>
+                        <div class="remember-password">
+                            <label for=""><input type="checkbox">Recuerdame</label>
+                            <a class="aRemember" href="#">Recuperar contraseña</a>
+                        </div>
+                        <button class="boton-login">Ingresar</button>
+                        <div class="create-account">
+                            <p class="plogin">¿No tienes cuenta? <a href="#" class="register-link">Pide tu registro al
+                                    administrador</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{%endblock%}
