@@ -1,90 +1,17 @@
 {%extends './base.html'  %}
 
 {%block body%}
-<!-- <a id="boton-cerrarSesión" class="btn btn-secondary"href="{{ url_for('logout') }}">Cerrar sesión</a> -->
 <body class="bodyPrincipal">
 
     <!-- header -->
-    <div class="navbarPrincipal">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">A.P.E.I</a>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">INICIO</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">AYUDA</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="botonCerrar" class="nav-link btn btn-secondary" href="{{ url_for('logout') }}">Cerrar sesión</a>
-                        </li>
-                    </ul>
-                    <div class="perfil-usuario-avatar-nav">
-                        <a href="/home">
-                            <img class="img-avatar-nav"
-                            src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/7/6/5/a/765afb557fabd371fd0a3ba386728100.jpg"
-                            alt="img-avatar-nav">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+    
     <!-- end header -->
     <div class="container1">
-        <section class="seccion-perfil-usuario">
-            <div class="perfil-usuario-body">
-                <div class="perfil-usuario-bio">
-                    <div class="perfil-usuario-avatar">
-                        <img src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/7/6/5/a/765afb557fabd371fd0a3ba386728100.jpg"
-                            alt="img-avatar">
-                        <button type="button" class="boton-avatar">
-                            <i class="fas fa-image"></i>
-                        </button>
-                    </div>
-                    <h3 class="titulo">{{ current_user.fullname}} <a href="" class="boton-edit"><i
-                                class="fas fa-pencil-alt"></i></a></h3>
-                    <p class="texto">
-                    </p>
-                </div>
-                <div class="perfil-usuario-footer">
-                    <ul class="lista-datos">
-                        <li><i class="icono fas fa-map-signs"></i>{{ current_user.Direccion}}.</li>
-                        <li><i class="icono fas fa-phone"></i>{{ current_user.Telefono}}.</li>
-                        <li><i class="icono fas fa-briefcase"></i>{{ current_user.Empresa}}.</li>
-                        <li><i class="icono fas fa-building"></i>{{ current_user.Cargo}}.</li> 
-                    </ul>
-                    <ul class="lista-datos">
-                        <li><i class="icono fas fa-map-marker-alt"></i>{{ current_user.Area}}.</li>
-                        <li><i class="icono fas fa-calendar-alt"></i>{{ current_user.Fecha_nacimiento}}.</li>
-                        <li><i class="icono fa-solid fa-id-card"></i>{{ current_user.NDI}}.</li>
-                        <li><i class="icono fa-solid fa-envelope"></i>{{ current_user.Email}}.</li> 
-                    </ul>
-                </div>
-            </div>
-            <div>
-                <br>
-            </div>
-        </section>
+        <p class="P1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ab, 
+            a placeat, magnam quo quae assumenda voluptates animi possimus at pariatur odio, 
+            excepturi officiis voluptatem laboriosam ipsum similique laborum! Non.</p>
     </div>
 </body>
+
 {%endblock%}
 
-{%block footer%}
-<footer class="footer mt-auto py-3 bg-light">
-    <div class="container-footer">
-        <span class="text-copy"><small>&copy; 2023 <b>Deivid Bautista</b>- Todos los derechos reservados.</small></span>
-        <a href="#" class="icono fa-brands fa-facebook"></a>
-          <a href="#" class="icono fa-brands fa-instagram"></a>
-          <a href="#" class="icono fa-brands fa-twitter"></a>
-          <a href="https://github.com/deividbautista/Anime-collab" class="icono fa-brands fa-github"></a>
-    </div>
-</footer>
-{%endblock%}

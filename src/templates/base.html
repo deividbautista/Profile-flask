@@ -11,12 +11,49 @@
     <title>{%block title%}{%endblock%}</title>
 </head>
 <body>
+    <div class="navbarPrincipal">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="/home">A.P.E.I</a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">AYUDA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="botonCerrar" class="nav-link btn btn-secondary" href="{{ url_for('logout') }}">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                    <div class="perfil-usuario-avatar-nav">
+                        <a href="/profile">
+                            <img class="img-avatar-nav"
+                            src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/7/6/5/a/765afb557fabd371fd0a3ba386728100.jpg"
+                            alt="img-avatar-nav">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
     {%block body%}
     {%endblock%}
 </body>
-<footer>
-    {%block footer%}
-    {%endblock%}
+<footer class="footer mt-auto py-3 bg-light" id="container-footer">
+    <div class="content-footer">
+        <span class="text-copy"><small>&copy; 2023 <b>Deivid Bautista</b>- Todos los derechos reservados.</small></span>
+        <a href="#" class="icono fa-brands fa-facebook"></a>
+          <a href="#" class="icono fa-brands fa-instagram"></a>
+          <a href="#" class="icono fa-brands fa-twitter"></a>
+          <a href="https://github.com/deividbautista/Profile-flask" class="icono fa-brands fa-github"></a>
+    </div>
 </footer>
 
 <script src="../static/js/main.js"></script>
@@ -25,3 +62,4 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
 </html>
+

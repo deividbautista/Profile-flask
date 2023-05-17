@@ -114,6 +114,14 @@ def logout():
 def home():
     return render_template('home.html')
 
+#Ruta de home donde nos llevara a la hora de realizar la verificación de usuario.
+@app.route('/profile')
+#Utilizamos el metodo de login_required para proteger esta ruta y exigir que se inicie sesión
+#de manera obligatoria para acceder a esta, y no poder hacerlo encontrando la ruta.
+@login_required
+def profile():
+    return render_template('profile/profile.html')
+
 #-----------------------------------------------------
 #Apartado de las funciones de los errores
 #-----------------------------------------------------
