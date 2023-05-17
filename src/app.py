@@ -56,7 +56,7 @@ def login():
         #print(request.form['password'])
 
         #Definir la instancia usuarios, la cual le pasamos los parametros del "NDI" y el "password".
-        user=User(0,request.form['NDI'],request.form['password'])
+        user=User(0,request.form['NDI'],request.form['password'],0,0,0,0,0,0,0)
 
         #Funcion para comprovar el logged del usuario, osea verificar que es una cuenta existente.
         logged_user=ModelUser.login(db, user)

@@ -2,7 +2,7 @@
 #-----------------------------------------------------
 #Sección donde importaremos Modulos, Instancias y variables, que utilizaresmos.
 #-----------------------------------------------------
-from .entities.User import User
+from .entities.User import *
 
 #-----------------------------------------------------
 #Sección de la clase principal donde realizaremos las consultas requeridas por medio de bloques.
@@ -16,7 +16,7 @@ class ModelUser():
         try:
             #Definimos cursor para la sentencia SQL, la cual obtendremos todos los datos del usuario.
             cursor=db.connection.cursor()
-            sql="""SELECT id, NDI, password, fullname FROM user
+            sql="""SELECT id, NDI, password, fullname, Direccion, Telefono, Empresa, Cargo, Area_locativa, Email, fecha_nacimiento FROM user
                     WHERE NDI = '{}' """.format(user.NDI)    
             cursor.execute(sql)
             row=cursor.fetchone()
@@ -26,7 +26,7 @@ class ModelUser():
             if row != None:
                 #Definimos arrow como una lista en la posición indicada, que corresponde a los atributos
                 #del usuario, anteriormente consultados.
-                user=User(row[0],row[1],User.check_password(row[2],user.password),row[3])
+                user=User(row[0],row[1],User.check_password(row[2],user.password),row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10])
                 #Para retornar la lista con los datos.
                 return user
             else:
@@ -42,7 +42,7 @@ class ModelUser():
         try:
             #Definimos cursor, para realizar la siguiente consulta, donde sustraeremos el id del usuario.
             cursor=db.connection.cursor()
-            sql="""SELECT id, NDI, fullname, Direccion, Telefono, Empresa, Cargo, Area_locativa, Email, Fecha_nacimiento FROM user
+            sql="""SELECT id, NDI, fullname, Direccion, Telefono, Empresa, Cargo, Area_locativa, Email, fecha_nacimiento FROM user
                     WHERE id = '{}' """.format(id)    
             cursor.execute(sql)
             #Especificamos el metodo feetchone, el cual nos permite manetener la difeerencia y conservación 

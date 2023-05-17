@@ -17,7 +17,7 @@ class DevelopmentConfig(Config):
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
     MYSQL_PASSWORD = ''
-    MYSQL_DB = 'flask-login'
+    MYSQL_DB = 'profile-flask'
 
 #-----------------------------------------------------
 #Apartado de para definir la configuración general de la base de datos.
