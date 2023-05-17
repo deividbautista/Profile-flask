@@ -40,9 +40,21 @@ estilos generales
     height: fit-content;
 }
 
+#sectionNavbar {
+    border-radius: 0.4rem;
+}
+#sectionNavbar:hover {
+    color: #fff;
+    background: #4f72a7 !important;
+    border-color: #241f5f;
+}
+
 #botonCerrar {
+    margin-top: -1px;
     background: none;
     border-color: none;
+    margin-left: 0.5rem;
+    border-radius: 0.4rem;
 }
 
 #botonCerrar:hover{
