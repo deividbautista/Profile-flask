@@ -1,11 +1,12 @@
-{%extends './base.html'  %}
+{%extends './base.html' %}
 
 {%block body%}
 <!-- <a id="boton-cerrarSesión" class="btn btn-secondary"href="{{ url_for('logout') }}">Cerrar sesión</a> -->
+
 <body class="bodyPrincipal">
 
     <!-- header -->
-    
+
     <!-- end header -->
     <div class="container1">
         <section class="seccion-perfil-usuario">
@@ -18,8 +19,10 @@
                             <i class="fas fa-image"></i>
                         </button>
                     </div>
-                    <h3 class="titulo">{{ current_user.fullname}} <a href="" class="boton-edit"><i
-                                class="fas fa-pencil-alt"></i></a></h3>
+                    <h3 class="titulo">{{ current_user.fullname}}
+                        <a href="" class="boton-edit"><i class="fas fa-pencil-alt"></i>
+                        </a>
+                    </h3>
                     <p class="texto">
                     </p>
                 </div>
@@ -28,13 +31,13 @@
                         <li><i class="icono fas fa-map-signs"></i>{{ current_user.Direccion}}.</li>
                         <li><i class="icono fas fa-phone"></i>{{ current_user.Telefono}}.</li>
                         <li><i class="icono fas fa-briefcase"></i>{{ current_user.Empresa}}.</li>
-                        <li><i class="icono fas fa-building"></i>{{ current_user.Cargo}}.</li> 
+                        <li><i class="icono fas fa-building"></i>{{ current_user.Cargo}}.</li>
                     </ul>
                     <ul class="lista-datos">
                         <li><i class="icono fas fa-map-marker-alt"></i>{{ current_user.Area}}.</li>
                         <li><i class="icono fas fa-calendar-alt"></i>{{ current_user.Fecha_nacimiento}}.</li>
                         <li><i class="icono fa-solid fa-id-card"></i>{{ current_user.NDI}}.</li>
-                        <li><i class="icono fa-solid fa-envelope"></i>{{ current_user.Email}}.</li> 
+                        <li><i class="icono fa-solid fa-envelope"></i>{{ current_user.Email}}.</li>
                     </ul>
                 </div>
             </div>

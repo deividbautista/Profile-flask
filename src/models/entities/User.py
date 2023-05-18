@@ -10,7 +10,7 @@ class User(UserMixin):
     #Utilizamos el metodo __init__, para poder instanciar la función de manera rapida y facil.
 
     #Esta función nos brinda la recopilación de los atributos del usuario.
-    def __init__(self, id, NDI, password, fullname, Direccion, Telefono, Empresa, Cargo, Area_locativa, Email, Fecha_nacimiento = "" ) -> None:
+    def __init__(self, id, NDI, password, fullname, Direccion, Telefono, Empresa, Cargo, Area_locativa, Email, Fecha_nacimiento, Rol = "" ) -> None:
         #  Direccion, Telefono, Empresa, Cargo, Area_locativa, Email, Fecha_nacimiento
         self.id = id
         self.NDI = NDI
@@ -23,6 +23,7 @@ class User(UserMixin):
         self.Area = Area_locativa
         self.Email = Email
         self.Fecha_nacimiento = Fecha_nacimiento
+        self.Rol = Rol
 
     #Para realizar la verificación y comprovación del hash
     @classmethod

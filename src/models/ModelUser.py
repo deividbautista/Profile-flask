@@ -42,7 +42,7 @@ class ModelUser():
         try:
             #Definimos cursor, para realizar la siguiente consulta, donde sustraeremos el id del usuario.
             cursor=db.connection.cursor()
-            sql="""SELECT id, NDI, fullname, Direccion, Telefono, Empresa, Cargo, Area_locativa, Email, fecha_nacimiento FROM user
+            sql="""SELECT id, NDI, fullname, Direccion, Telefono, Empresa, Cargo, Area_locativa, Email, Fecha_nacimiento, Rol FROM user
                     WHERE id = '{}' """.format(id)    
             cursor.execute(sql)
             #Especificamos el metodo feetchone, el cual nos permite manetener la difeerencia y conservación 
@@ -52,7 +52,7 @@ class ModelUser():
             #De igual manera para este bloque, se debe determinar la condicional que pondra en analisis 
             #el array con los datos del usuario.
             if row != None:
-                return User(row[0],row[1],None,row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9])
+                return User(row[0],row[1],None,row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10])
             else:
                 return None
         #se utiliza except para dar fin al bloqué.

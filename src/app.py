@@ -56,7 +56,7 @@ def login():
         #print(request.form['password'])
 
         #Definir la instancia usuarios, la cual le pasamos los parametros del "NDI" y el "password".
-        user=User(0,request.form['NDI'],request.form['password'],0,0,0,0,0,0,0)
+        user=User(0,request.form['NDI'],request.form['password'],0,0,0,0,0,0,0,0)
 
         #Funcion para comprovar el logged del usuario, osea verificar que es una cuenta existente.
         logged_user=ModelUser.login(db, user)
@@ -98,6 +98,7 @@ def login():
 def index():
     return redirect(url_for('login'))
 
+#-----------------------------------------------------
 #Ruta de login principal
 @app.route('/logout')
 #Utilizamos esta función para cerrar sesión del usuario y volver a login principal
@@ -106,6 +107,7 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
+#-----------------------------------------------------
 #Ruta de home donde nos llevara a la hora de realizar la verificación de usuario.
 @app.route('/home')
 #Utilizamos el metodo de login_required para proteger esta ruta y exigir que se inicie sesión
@@ -114,6 +116,7 @@ def logout():
 def home():
     return render_template('home.html')
 
+#-----------------------------------------------------
 #Ruta de home donde nos llevara a la hora de realizar la verificación de usuario.
 @app.route('/profile')
 #Utilizamos el metodo de login_required para proteger esta ruta y exigir que se inicie sesión
@@ -121,6 +124,15 @@ def home():
 @login_required
 def profile():
     return render_template('profile/profile.html')
+
+#-----------------------------------------------------
+#Ruta de home donde nos llevara a la hora de realizar la verificación de usuario.
+@app.route('/help')
+#Utilizamos el metodo de login_required para proteger esta ruta y exigir que se inicie sesión
+#de manera obligatoria para acceder a esta, y no poder hacerlo encontrando la ruta.
+@login_required
+def help():
+    return render_template('help/help.html')
 
 #-----------------------------------------------------
 #Apartado de las funciones de los errores

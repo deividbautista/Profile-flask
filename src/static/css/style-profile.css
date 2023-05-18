@@ -10,72 +10,13 @@
 /*=====================================
 estilos generales
 =====================================*/
-.bodyPrincipal{
-    background-color: rgb(233, 236, 238);
-}
-.container1{
-    height: 100vh;
-}
-.navbarPrincipal{
-    width: 100%;
-    position: fixed;
-    z-index: 2;
-}
-#container-footer{
-    background-color: #d6d3fc !important;
-}
-.content-footer{
-    text-align: center;
-}
-.content-footer .icono{
-    text-decoration: none;
-    color: rgb(34, 34, 34);
-}
-
-.content-footer .icono:hover{
-    color: #2785ff;
-}
-.navbar {
-    background-image: linear-gradient(45deg,  #a5c8ff, #8b89fc);
-    height: fit-content;
-}
-
-#sectionNavbar {
-    border-radius: 0.4rem;
-}
-#sectionNavbar:hover {
-    color: #fff;
-    background: #4f72a7 !important;
-    border-color: #241f5f;
-}
-
-#botonCerrar {
-    margin-top: -1px;
-    background: none;
-    border-color: none;
-    margin-left: 0.5rem;
-    border-radius: 0.4rem;
-}
-
-#botonCerrar:hover{
-    color: #fff;
-    background: #4f72a7 !important;
-    border-color: #241f5f;
-}
 .img-avatar-nav{
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
 }
-.P1{
-    padding-top: 7rem;
-    margin-left: 10rem;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    width: 70%;
-    text-align: justify;
-}
+
 .perfil-usuario-avatar-nav{
     width: 70px;
     height: 70px;
@@ -272,8 +213,5 @@ estilos generales
     }
     .seccion-perfil-usuario .lista-datos li i {
         width: 13%;
-    }
-    #botonCerrar {
-        width: 18%;
     }
 }
