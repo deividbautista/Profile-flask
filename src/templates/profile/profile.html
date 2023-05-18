@@ -20,8 +20,9 @@
                         </button>
                     </div>
                     <h3 class="titulo">{{ current_user.fullname}}
-                        <a href="" class="boton-edit"><i class="fas fa-pencil-alt"></i>
-                        </a>
+                        <button type="button" class="boton-edit" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
                     </h3>
                     <p class="texto">
                     </p>
@@ -41,10 +42,48 @@
                     </ul>
                 </div>
             </div>
-            <div>
-                <br>
-            </div>
         </section>
+        <!-- Button trigger modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar datos</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="POST">
+                            <label for="">Nombrecompleto</label>
+                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.fullname}}">
+                            <label for="">Direccion</label>
+                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Direccion}}">
+                            <label for="">Telefono</label>
+                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Telefono}}">
+                            <label for="">Cargo</label>
+                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Cargo}}">
+                            <label for="">Area locativa</label>
+                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Area}}">
+                            <label for="">Fecha de nacimiento</label>
+                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Fecha_nacimiento}}">
+                            <label for="">Número de documento</label>
+                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.NDI}}">
+                            <label for="">Correo electronico</label>
+                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Email}}">
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label"></label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file">
+                            </div> 
+                            <div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 {%endblock%}
