@@ -55,6 +55,37 @@ estilos generales
 }
 /*Fin sección Navbar principal*/
 
+.submenu ul{
+    margin-top: -1em;
+}
+
+.submenu{
+    position: absolute;
+    border-radius:5px;
+    background: #333333 ;
+    width: 150px;
+    visibility: hidden;
+    opacity: 80%;
+    transition: opacity 1.5s;
+    list-style: none;
+    transition: .1s;
+}
+
+.submenu li a{
+    display: block;
+    border-radius:5px;
+    padding: 12px;
+    color: rgb(255, 228, 228);
+    font-family: "open sans";
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+.navbar-nav li:hover .submenu{
+    visibility: visible;
+    opacity: 1;
+}
+
 #botonDescargar {
     color: black;
     margin-top: -1px;
