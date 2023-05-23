@@ -50,3 +50,9 @@ Simplemente escribimos la leyenda python, seguido de app.py "python app.py"
 ## Otros comandos
 
 "pip list" / "pip freeze" / "python" 
+  
+## Landing page.
+  
+<img src="https://github.com/deividbautista/Profile-flask/blob/main/src/static/img/Landing_page.png" width="1000 px"/>
+  
+  
