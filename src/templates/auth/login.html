@@ -1,79 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Apartado de links para otorgar los estilos -->
     <link rel="stylesheet" href="../static/css/style-general.css">
     <link rel="stylesheet" href="../static/css/style-login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- Fin apartado de links para otorgar los estilos -->
+
+    <!-- Titúlo donde reflejaremos el nombre concorde al presente modulo-->
     <title>Iniciar sesión</title>
 </head>
+
+<!-- Sección principal del cuerpo donde se observara el contenido principal del modulo-->
+
 <body class="body-login">
-    <div class="cabecera" id="cabecera">
-        <div class="container">
-            <div class="item">
-                <a href="https://telcore.co/">
-                    <img class="logologin" src="../../static/img/LogoTelcore-1.png" alt="">
-                </a>
-                <div class="text-item">
-                    <h2>¡Bien venidos! <br>
-                        <p class="plogo">Al portal de empleados de telcore</p>
-                        <p class="plogo">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Unde architecto officiis laudantium provident nisi beatae.</p>
-                    </h2>
-                </div>
-            </div>
-            {% with messages = get_flashed_messages() %}
 
-            {% if messages %}
-            <br />
-            {% for message in messages %}
-            <div class="alert alert-primary alert-dismissible" role="alert">
-                <strong>{{ message }}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            {% endfor %}
-            {% endif %}
+    <!-- Sección principal que alberga todo el contenido del modulo-->
+    <div class="container">
 
-            {% endwith %}
-            <div class="login-section">
-                <div class="form-box login">
-                    <form action="/login" method="POST">
-                        <h2>INICIAR SESIÓN</h2>
-                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                        <div class="input-box">
-                            <span class="icon"><i class="fa-regular fa-user"></i></span>
-                            <input class="input_login-register" type="text" name="NDI" required placeholder="">
-                            <label>Número de documento</label>
-                        </div>
-                        <div class="input-box">
-                            <span class="icon" id="icon-eye"><i id="eye" class="fa-regular fa-eye-slash"></i></span>
-                            <input class="input_login-register" id="password" type="password" name="password" required
-                                placeholder="">
-                            <label>Contraseña</label>
-                        </div>
-                        <div class="remember-password">
-                            <a class="aRemember" href="#">Recuperar contraseña</a>
-                        </div>
-                        <button class="boton-login">Ingresar</button>
-                        <div class="create-account">
-                            <p class="plogin">¿No tienes cuenta? <a href="#" class="register-link">Pide tu registro al
-                                    administrador.</a></p>
-                        </div>
-                    </form>
-                </div>
+        <!-- Sección donde encontramos la descripción he imagen del aplicativo para brindar un diseño amigable-->
+        <div class="item">
+            <!-- Imagen con enlace -->
+            <a href="https://telcore.co/">
+                <img class="logologin" src="../../static/img/LogoTelcore-1.png" alt="">
+            </a>
+            
+            <!-- Texto con la invitaación a ingresar al usuario-->
+            <div class="text-item">
+                <h2>¡Bien venidos! <br>
+                    <p class="plogo">Al portal de empleados de telcore</p>
+                    <p class="plogo">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Unde architecto officiis laudantium provident nisi beatae.</p>
+                </h2>
+            </div>
+        </div>
+        <!-- Sección donde encontramos la descripción he imagen del aplicativo para brindar un diseño amigable-->
+
+
+        {% with messages = get_flashed_messages() %}
+        
+        {% if messages %}
+        <br />
+        {% for message in messages %}
+        <div class="alert alert-primary alert-dismissible" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% endwith %}
+        <div class="login-section">
+            <div class="form-box login">
+                <form action="/login" method="POST">
+                    <h2>INICIAR SESIÓN</h2>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-regular fa-user"></i></span>
+                        <input class="input_login-register" type="text" name="NDI" required placeholder="">
+                        <label>Número de documento</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon" id="icon-eye"><i id="eye" class="fa-regular fa-eye-slash"></i></span>
+                        <input class="input_login-register" id="password" type="password" name="password" required
+                            placeholder="">
+                        <label>Contraseña</label>
+                    </div>
+                    <div class="remember-password">
+                        <a class="aRemember" href="#">Recuperar contraseña</a>
+                    </div>
+                    <button class="boton-login">Ingresar</button>
+                    <div class="create-account">
+                        <p class="plogin">¿No tienes cuenta? <a href="#" class="register-link">Pide tu registro al
+                                administrador.</a></p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <!-- Fin sección principal que alberga todo el contenido del modulo-->
+
+
 </body>
+<!-- Fin sección principal del cuerpo donde se observara el contenido principal del modulo-->
+
+
+<!-- Sección donde encontramos los enlaces para los scripts que utilizamos para el 
+dinamismo de la plataforma-->
 <script src="../static/js/main.js"></script>
 <script src="https://kit.fontawesome.com/9c61ead5a6.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
-</html>
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    </script>
+<!-- Fin sección donde encontramos los enlaces para los scripts que utilizamos para el 
+dinamismo de la plataforma-->
 
+</html>
