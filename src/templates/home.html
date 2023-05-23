@@ -1,10 +1,15 @@
+<!-- Utilizamos las propiedades de flask "extends", para poder heredar las propiedades del archivo principal base 
+que contiene los links principales del javaScripts y Css, para brindar los estilos a los demas modulos
+-->
 {%extends './base.html'  %}
 
+<!-- Utilizando las propiedades block, definiendo el la sección body, podemos insertar la estructura principal html, para 
+poder personalizar y ahorrar lineas de codigo en los modulos
+-->
 {%block body%}
 <body class="bodyPrincipal">
 
-    <!-- header -->
-    <!-- end header -->
+    <!-- Contenido principal "En desarrollo..."-->
     <div class="container1">
         <p class="P1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ab, 
             a placeat, magnam quo quae assumenda voluptates animi possimus at pariatur odio, 
