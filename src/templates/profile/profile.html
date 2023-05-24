@@ -21,7 +21,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
         <section class="seccion-perfil-usuario">
             <!-- Body o cuerpo de la sección principal de perfil de usuario -->
             <div class="perfil-usuario-body">
-                <!-- Sección de header o encabezado donde se observa el nombre, foto y boton para editar datoss del usario -->
+                <!-- Sección de header o encabezado donde se observa el nombre, foto y botón para editar datoss del usario -->
                 <div class="perfil-usuario-bio">
                     <!-- Division que contiene la foto de perfil del usario-->
                     <div class="perfil-usuario-avatar">
@@ -39,7 +39,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
                     la cual contiene los parametros de los datos de el usario por medio de consulta sql dictaminada en el aparado de "ModelsUser"-->
                     <h3 class="titulo">{{ current_user.fullname}}
 
-                        <!-- Boton para acceder al modal, que contiene la sección principal para la actualización de datos del usario -->
+                        <!-- Botón para acceder al modal, que contiene la sección principal para la actualización de datos del usario -->
                         <button type="button" class="boton-edit" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
@@ -48,7 +48,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
                     <p class="texto">
                     </p>
                 </div>
-                <!-- Fin sección de header o encabezado donde se observa el nombre, foto y boton para editar datoss del usario -->
+                <!-- Fin sección de header o encabezado donde se observa el nombre, foto y botón para editar datoss del usario -->
 
                 <!-- Sección del footer del apartado de los datos del usario donde se encuentran todos los datos de este mismo -->
                 <div class="perfil-usuario-footer">
@@ -103,7 +103,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
                             <label for="">Correo electronico</label>
                             <input type="text" class="form-control mb-3" placeholder="{{ current_user.Email}}">
 
-                            <!-- Boton donde podremos subir el archivo con la foto del perfil -->
+                            <!-- Botón donde podremos subir el archivo con la foto del perfil -->
                             <div class="mb-3">
                                 <label for="formFileSm" class="form-label"></label>
                                 <input class="form-control form-control-sm" id="formFileSm" type="file">
@@ -115,7 +115,11 @@ poder personalizar y ahorrar lineas de codigo en los modulos
 
                     <!-- Sección de footer del modal, donde encontramos los botones de "Guardar cambios" y "Cancelar" -->
                     <div class="modal-footer">
+
+                        <!-- Botón para cancelar o cerrar el modal-->
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                        <!-- Botón para guardar cambios y actualizar datos-->
                         <button type="button" class="btn btn-primary">Guardar cambios</button>
                     </div>
                     <!-- Fin sección de footer del modal, donde encontramos los botones de "Guardar cambios" y "Cancelar" -->
