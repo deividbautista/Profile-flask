@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Sección header-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,22 +11,38 @@
     <link rel="stylesheet" href="../static/css/style-profile.css">
     <link rel="stylesheet" href="../static/css/style-login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!-- Fin apartado de links para otorgar los estilos -->
 
+    <!-- Apartado para la personalización del titulo del modulo por medio del uso de las propiedades block
+    que nos brinda el procesador de renderizado "FLASK"-->
     <title>{%block title%}{%endblock%}</title>
 </head>
+<!-- Fin sección header-->
+
+<!-- Sección body principal -->
 <body>
+
+    <!-- Contenedor general del navbar general del proyecto, implementando botstrap para su elaboración-->
     <div class="navbarPrincipal">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
+                <!-- Boton encargado de desplegar el menú cuando adquiere las propiedades responsive adaptandose al tamaño
+                adecuado para un dispositivo mobil-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- Contenedor principal que alberga la lista con los elementos deseados para reflejar en el menú-->
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+                    <!-- Titúlo que contiene el nombre del aplicativo y tambien posee la funcionalidad de redirecciónar a la
+                    landing page principal-->
                     <a class="navbar-brand" href="/home">A.P.E.I</a>
+
+                    <!-- Lista donde se tienen los distintos titulos de los modulos del proyecto-->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a id="sectionNavbar" class="nav-link" href="/home">INICIO</a>
@@ -32,9 +50,14 @@
                         <li class="nav-item">
                             <a id="sectionNavbar" class="nav-link" href="/help">AYUDA</a>
                         </li>
+                        <!-- Boton de cerrar para finalizar la sesión dentro del aplicativo, utilizando la sintaxis proporcinada por flask, podemos
+                        ejecutar la acción "logout" o "Cerrar sesión" gracias a "url_for"-->
                         <li class="nav-item">
-                            <a id="botonCerrar" class="nav-link btn btn-secondary" href="{{ url_for('logout') }}">CERRAR SESIÓN</a>
+                            <a id="botonCerrar" class="nav-link btn btn-secondary" href="{{ url_for('logout') }}">CERRAR
+                                SESIÓN</a>
                         </li>
+
+                        <!-- Sección donde adaptariamos la foto de perfil del usario para tener un menú deplegable, se encuentra en desarrollo...-->
                         <!-- <li class="nav-item">
                             <div class="perfil-usuario-avatar-nav">
                                 <a href="/profile">
@@ -48,34 +71,50 @@
                               </ul>
                         </li> -->
                     </ul>
+                    <!-- Sección donde se reflejara la foto de perfil del usuario -->
                     <div class="perfil-usuario-avatar-nav">
                         <a href="/profile">
                             <img class="img-avatar-nav"
-                            src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/7/6/5/a/765afb557fabd371fd0a3ba386728100.jpg"
-                            alt="img-avatar-nav">
+                                src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/7/6/5/a/765afb557fabd371fd0a3ba386728100.jpg"
+                                alt="img-avatar-nav">
                         </a>
                     </div>
+                    <!-- Fin sección donde se reflejara la foto de perfil del usuario -->
                 </div>
             </div>
         </nav>
+        <!-- Fin contenedor general del navbar general del proyecto-->
+
     </div>
+
+    <!-- Utilizando la propiedad block podemos indicar un apartado para personalización del modulo en especifico, por ello definimos el bloque body
+    para poder tener como plantilla general la pagina con un background establecido, el navbar y footer generales, con la finalidad de ahorrar y optimizar
+    lineas de código-->
     {%block body%}
     {%endblock%}
 </body>
+<!-- Fin sección body principal -->
+
+<!-- Sección footer general--> 
+<!--Se vera utilizado en todo el aplicativo y por ello debe estar en el archivo base-->
 <footer class="footer mt-auto py-3 bg-light" id="container-footer">
     <div class="content-footer">
         <span class="text-copy"><small>&copy; 2023 <b>Deivid Bautista</b>- Todos los derechos reservados.</small></span>
         <a href="#" class="icono fa-brands fa-facebook"></a>
-          <a href="#" class="icono fa-brands fa-instagram"></a>
-          <a href="#" class="icono fa-brands fa-twitter"></a>
-          <a href="https://github.com/deividbautista/Profile-flask" class="icono fa-brands fa-github"></a>
+        <a href="#" class="icono fa-brands fa-instagram"></a>
+        <a href="#" class="icono fa-brands fa-twitter"></a>
+        <a href="https://github.com/deividbautista/Profile-flask" class="icono fa-brands fa-github"></a>
     </div>
 </footer>
+<!-- Fin sección footer general-->
 
+<!-- Sección de enlaces de los scripst para darle fluides he interactividad a la plataforma
+incluyendo los scripts que brinda Bootstrap, para sus animaciones-->
 <script src="../static/js/main.js"></script>
 <script src="https://kit.fontawesome.com/9c61ead5a6.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
-</html>
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+<!-- Fin sección de enlaces de los scripst-->
 
+</html>
