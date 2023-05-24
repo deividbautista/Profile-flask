@@ -1,7 +1,7 @@
 
-
 #Codigo sustraido del canal url=('https://youtu.be/FX0lMm_Qj10')
 #creditos respectivos al autor y o su equipo de trabajo, "Repositorio=('https://github.com/UskoKruM/flask-login-mysql')"
+
 
 #-----------------------------------------------------
 #Sección donde importaremos Modulos, Instancias y variables, que utilizaresmos.
@@ -10,6 +10,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager, login_user, logout_user, login_required
+
+import re
 
 from config import config
 
@@ -88,6 +90,28 @@ def login():
     else:
         #Para dar retorno a nuestra ruta principal.
         return render_template('auth/login.html')
+    
+#-----------------------------------------------------
+#Sección principal de actualización de usuario.
+#-----------------------------------------------------
+# @app.route('/edit/<string:id>', methods=['POST'])
+
+# def Update(id):
+
+#     if request.method == 'POST':
+
+#         conexion_MySQLdb = config()
+#         cur = conexion_MySQLdb.cursor()
+#         cur.execute ("""UPDATE users SET NDI = %s, password = %s, fullname = %s, Direccion = %s, Telefono = %s, Empresa = %s, Cargo = %s, Area_locativa, Email = %s, fecha_nacimiento = %s FROM user
+#             WHERE NDI = '{}' """.format(id))
+        
+#         conexion_MySQLdb.commit()
+#         cur.close()    
+#         return redirect(url_for('home'))     
+#     else:
+#         #Para dar retorno a nuestra ruta principal.
+#         return render_template('profile/profile.html')
+
 
 #-----------------------------------------------------
 #Apartado de las rutas principales con sus respectivas caracteristicas.
