@@ -67,36 +67,49 @@
         {% endwith %}
         <!-- Fin de with menssage-->
 
-        <!-- Sección formulario de inicio de sesión-->
+        <!-- Sección contenedor del formulario de inicio de sesión-->
         <div class="login-section">
             <div class="form-box login">
+                <!-- Sección formulario de inciar sesión-->
                 <form action="/login" method="POST">
                     <h2>INICIAR SESIÓN</h2>
+                    <!-- Sección que enivara el token de seguridad de usario-->
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                    <!-- Input o casilla donde se obtendran los datos del usario "Número de documento"-->
                     <div class="input-box">
                         <span class="icon"><i class="fa-regular fa-user"></i></span>
                         <input class="input_login-register" type="text" name="NDI" required placeholder="">
                         <label>Número de documento</label>
                     </div>
+
+                    <!-- Input o casilla donde se obtendran los datos del usario "Contraseña"-->
                     <div class="input-box">
+
+                        <!-- Icono de para permitir la visualización de la contraseña-->
                         <span class="icon" id="icon-eye"><i id="eye" class="fa-regular fa-eye-slash"></i></span>
                         <input class="input_login-register" id="password" type="password" name="password" required
                             placeholder="">
                         <label>Contraseña</label>
                     </div>
+
+                    <!-- Sección que habilitara la funcionalidad de recordar contraseña, SE ENCUENTRA EN DESARROLLO -_-....-->
                     <div class="remember-password">
                         <a class="aRemember" href="#">Recuperar contraseña</a>
                     </div>
+
+                    <!-- Botón para ingresar enviando las credenciales para ser comprobadas en el archivo 2app.py"-->
                     <button class="boton-login">Ingresar</button>
                     <div class="create-account">
                         <p class="plogin">¿No tienes cuenta? <a href="#" class="register-link">Pide tu registro al
                                 administrador.</a></p>
                     </div>
                 </form>
+                <!-- Fin sección formulario de inciar sesión-->
             </div>
         </div>
-        <!-- Sección formulario de inicio de sesión-->
-        
+        <!-- Sección contenedor del formulario de inicio de sesión-->
+
     </div>
     <!-- Fin sección principal que alberga todo el contenido del modulo-->
 
