@@ -41,20 +41,33 @@
         </div>
         <!-- Sección donde encontramos la descripción he imagen del aplicativo para brindar un diseño amigable-->
 
-
+        <!-- Iniciamos el with menssage, que utilizamos para recibir los mensajes por medio de esta propiedad brindada por Flask-->
         {% with messages = get_flashed_messages() %}
         
+        <!-- Declaramos la condicional en que si encontramos un mensaje, realizaremos lo siguiente-->
         {% if messages %}
         <br />
+        <!-- Utilizando el ciclo repetitivo for, recorremos los mensajes envidados por el metodo flash en el archivo del app.py, dependiendo
+            de la situación se determinara cierto mensaje-->
         {% for message in messages %}
+
+        <!-- Realizamos el estilo del alert utilizando la documentación de bootstrap-->
         <div class="alert alert-primary alert-dismissible" role="alert">
+
+            <!-- Se mostrara el mensaje obtenido en la variable menssage, que sustrae los flash enviados-->
             <strong>{{ message }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         {% endfor %}
+        <!-- Fin ciclo repetitivo for-->
+
         {% endif %}
+        <!-- Fin de la condicional-->
 
         {% endwith %}
+        <!-- Fin de with menssage-->
+
+        <!-- Sección formulario de inicio de sesión-->
         <div class="login-section">
             <div class="form-box login">
                 <form action="/login" method="POST">
@@ -82,6 +95,8 @@
                 </form>
             </div>
         </div>
+        <!-- Sección formulario de inicio de sesión-->
+        
     </div>
     <!-- Fin sección principal que alberga todo el contenido del modulo-->
 
