@@ -8,13 +8,16 @@ estilos generales
     background-color: rgb(233, 236, 238);
 }
 
-.container1 {
-    height: 100vh;
+#container-footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    background: #999;
+    background-color: #d6d3fc !important;
 }
 
-.container2 {
-    height: 120vh;
-}
 
 .P1 {
     padding-top: 7rem;
@@ -42,7 +45,7 @@ estilos generales
 
 #sectionNavbar:hover {
     color: #fff;
-    background: #4f72a7 !important;
+    background: #5367b8 !important;
     border-color: #241f5f;
 }
 
@@ -56,7 +59,7 @@ estilos generales
 
 #botonCerrar:hover {
     color: #fff;
-    background: #4f72a7 !important;
+    background: #5367b8 !important;
     border-color: #241f5f;
 }
 
@@ -77,6 +80,7 @@ estilos generales
     box-shadow: 0 0 12px rgba(0, 0, 0, .2);
     position: relative;
 }
+
 /*Fin sección Navbar principal*/
 
 
@@ -103,6 +107,7 @@ estilos generales
     width: 9rem;
     margin: auto;
 }
+
 /*Fin seccción botones*/
 
 
@@ -117,18 +122,13 @@ estilos generales
 
 .view-pdf {
     width: 640px;
-    height: 480px;
+    height: 60vh;
 }
+
 /*Fin sección de modulo de ayuda*/
 
 
 /*Inicio sección Footer principal*/
-#container-footer {
-    position: absolute;
-    width: 100%;
-    float: bottom;
-    background-color: #d6d3fc !important;
-}
 
 .content-footer {
     text-align: center;
@@ -142,12 +142,40 @@ estilos generales
 .content-footer .icono:hover {
     color: #2785ff;
 }
+
 /*Fin sección Footer principal*/
 
 
 /*Inicio sección para la configuración responsive*/
-@media (max-width: 750px) {
-    #botonCerrar {
-        width: 18%;
+@media (max-width: 991px) {
+    #Name_nav {
+        margin-top: -2.5rem;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
     }
+
+    #sectionNavbar {
+        margin: auto;
+        text-align: center;
+        width: 18%;
+        border-color: #5d1f5f;
+        margin-bottom: 10px;
+    }
+
+    #botonCerrar {
+        margin: auto;
+        position: relative;
+        width: 18%;
+        margin-bottom: 10px;
+    }
+
+    .perfil-usuario-avatar-nav {
+        width: 90px;
+        height: 90px;
+        left: 0.5px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
 }

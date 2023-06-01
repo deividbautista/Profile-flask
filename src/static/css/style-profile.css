@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +9,6 @@
 /*=====================================
 estilos generales
 =====================================*/
-
-.seccion-perfil-usuario{
-    padding-bottom: 10.5rem ;
-}
 
 .seccion-perfil-usuario .perfil-usuario-body,
 .seccion-perfil-usuario {
@@ -76,6 +71,7 @@ estilos generales
     justify-content: center;
     font-size: 1.4rem;
 }
+
 .seccion-perfil-usuario .perfil-usuario-body {
     width: 70%;
     position: relative;
@@ -116,7 +112,7 @@ estilos generales
 
 .seccion-perfil-usuario .lista-datos li {
     padding: 5px 0;
-    
+
 }
 
 .seccion-perfil-usuario .lista-datos li i {
@@ -153,6 +149,7 @@ estilos generales
     box-shadow: 0 0 12px rgba(0, 0, 0, .2);
     font-size: 1.3rem;
 }
+
 .boton-edit {
     border: 0;
     text-decoration: none !important;
@@ -166,6 +163,7 @@ estilos generales
     font-size: 1.4rem;
     background: linear-gradient(45deg, #4675cd, #b4dcff) !important;
 }
+
 .seccion-perfil-usuario .redes-sociales .boton-redes+.boton-redes {
     margin-top: .5rem;
 }
@@ -181,15 +179,16 @@ estilos generales
         width: 95%;
     }
 
-    .container1{
+    .container1 {
         height: 140vh;
     }
+
     .seccion-perfil-usuario .perfil-usuario-avatar {
-        bottom: 74%;
+        bottom: 100%;
         margin: auto;
         position: relative;
     }
-    
+
     .seccion-perfil-usuario .perfil-usuario-avatar img {
         width: 100%;
         height: 100%;
@@ -197,6 +196,7 @@ estilos generales
         border-radius: 50%;
         object-fit: cover;
     }
+
     .seccion-perfil-usuario .lista-datos li i {
         width: 13%;
     }
