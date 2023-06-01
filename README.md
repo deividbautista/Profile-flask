@@ -53,6 +53,6 @@ Simplemente escribimos la leyenda python, seguido de app.py "python app.py"
   
 ## Landing page.
   
-<img src="https://github.com/deividbautista/Profile-flask/blob/main/src/static/img/Landing_page.png" width="1000 px"/>
+<img src="https://github.com/deividbautista/Profile-flask/blob/main/src/static/img/landing_page.png" width="1000 px"/>
   
   
