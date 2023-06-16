@@ -1,4 +1,3 @@
-
 <!-- Utilizamos las propiedades de flask "extends", para poder heredar las propiedades del archivo principal base 
 que contiene los links principales del javaScripts y Css, para brindar los estilos a los demas modulos
 -->
@@ -14,6 +13,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
 <!-- <a id="boton-cerrarSesión" class="btn btn-secondary"href="{{ url_for('logout') }}">Cerrar sesión</a> -->
 
 <!-- Sección principal del modúlo de perfil de usuario -->
+
 <body class="bodyPrincipal">
     <!-- Contenedor principal del modulo -->
     <div class="container1">
@@ -74,6 +74,30 @@ poder personalizar y ahorrar lineas de codigo en los modulos
         <!-- Fin sección de perfil, donde observaremos los datos del usuario, junto con su nombre y foto de perfil -->
 
         <!-- Inicio de modal o sección que contiene formulario para actualizar datos del usario -->
+        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">{{current_user.fullname}}</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/edit" method="post">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <label>NDI</label>
+                        <input type="text" class="form-control mb-3" name="NDI" value="{{current_user.NDI}}">
+                        <label>Name</label>
+                        <input type="text" class="form-control mb-3" name="fullname" value="{{current_user.fullname}}">
+                        <label>Password</label>
+                        <input type="text" class="form-control mb-3" name="password" value="{{current_user.password}}">  
+
+                        <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+              </div>
+            </div>
+        </div> -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -85,44 +109,50 @@ poder personalizar y ahorrar lineas de codigo en los modulos
 
                     <!-- Cuerpo del modal donde encontramos el formualrio con los datos del usario -->
                     <div class="modal-body">
-                        <form action="" method="POST">
-                            <label for="">Nombrecompleto</label>
-                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.fullname}}">
+                        <form action="/edit" method="POST">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <label for="">Nombre completo</label>
+                            <input type="text" class="form-control mb-3" name="fullname" value="{{current_user.fullname}}">
                             <label for="">Direccion</label>
-                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Direccion}}">
+                            <input type="text" class="form-control mb-3" value="{{ current_user.Direccion}}">
                             <label for="">Telefono</label>
-                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Telefono}}">
+                            <input type="text" class="form-control mb-3" value="{{ current_user.Telefono}}">
                             <label for="">Cargo</label>
-                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Cargo}}">
+                            <input type="text" class="form-control mb-3" value="{{ current_user.Cargo}}">
                             <label for="">Area locativa</label>
-                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Area}}">
+                            <input type="text" class="form-control mb-3" value="{{ current_user.Area}}">
                             <label for="">Fecha de nacimiento</label>
-                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Fecha_nacimiento}}">
+                            <input type="text" class="form-control mb-3" value="{{ current_user.Fecha_nacimiento}}">
                             <label for="">Número de documento</label>
-                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.NDI}}">
+                            <input type="text" class="form-control mb-3" name="NDI" value="{{ current_user.NDI}}">
                             <label for="">Correo electronico</label>
-                            <input type="text" class="form-control mb-3" placeholder="{{ current_user.Email}}">
+                            <input type="text" class="form-control mb-3" value="{{ current_user.Email}}">
 
                             <!-- Botón donde podremos subir el archivo con la foto del perfil -->
                             <div class="mb-3">
                                 <label for="formFileSm" class="form-label"></label>
                                 <input class="form-control form-control-sm" id="formFileSm" type="file">
                             </div>
-                            <div>
+                            <div class="modal-footer">
+                                <!-- Botón para cancelar o cerrar el modal-->
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+
+                                <!-- Botón para guardar cambios y actualizar datos-->
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
                         </form>
                     </div>
-                    <!-- Fin cuuerpo del modal donde encontramos el formualrio con los datos del usario -->
-
-                    <!-- Sección de footer del modal, donde encontramos los botones de "Guardar cambios" y "Cancelar" -->
-                    <div class="modal-footer">
-
-                        <!-- Botón para cancelar o cerrar el modal-->
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
-                        <!-- Botón para guardar cambios y actualizar datos-->
-                        <button type="button" class="btn btn-primary">Guardar cambios</button>
-                    </div>
-                    <!-- Fin sección de footer del modal, donde encontramos los botones de "Guardar cambios" y "Cancelar" -->
+                    <!--
+                                 <div class="modal-footer">
+            
+            
+                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            
+            
+                                     <button type="button" class="btn btn-primary">Guardar cambios</button>
+                                 </div>
+                                 -->
                 </div>
             </div>
         </div>

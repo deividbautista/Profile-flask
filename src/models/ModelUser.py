@@ -58,3 +58,16 @@ class ModelUser():
         #se utiliza except para dar fin al bloqué.
         except Exception as ex:
             raise Exception(ex)
+        
+
+    @classmethod
+    #definimos login con los parametros necesarios para realizar la consulta pertinente.
+    def update(self,db):
+        #Presentamos el bloque try, el cual pasara a ejecutar la sentencia "SQL".
+        try:
+            #Definimos cursor para la sentencia SQL, la cual obtendremos todos los datos del usuario.
+            cursor=db.connection.cursor()
+            sql="""UPDATE user SET  Telefono = 3133653789 FROM user WHERE NDI = 1 """  
+            cursor.execute(sql)
+        except Exception as ex:
+            raise Exception(ex)
