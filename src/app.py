@@ -122,88 +122,87 @@ def login():
 
 @app.route("/edit", methods=["POST"])
 def update():
-    # name = request.form["fullname"]
-    # # Presentamos el bloque try, el cual pasara a ejecutar la sentencia "SQL".
+    # Presentamos el bloque try, el cual pasara a ejecutar la sentencia "SQL".
     # try:
     #     # Definimos cursor para la sentencia SQL, la cual obtendremos todos los datos del usuario.
     #     cursor = db.connection.cursor()
-    #     sql = "UPDATE user SET fullname = %s WHERE id = 1 "
-    #     data = (name)
-    #     cursor.execute(sql, data)
+    #     sql = "UPDATE user SET fullname = 'andragora' WHERE id = 1 "
+    #     cursor.execute(sql)
     #     db.connection.commit()
     #     return render_template("profile/profile.html")
     # except Exception as ex:
     #     raise Exception(ex)
 
+
+    # if name and numerodocumento:
+    #     cursor = db.connection.cursor()
+    #      #sql = "UPDATE user SET fullname = 'diomedes' WHERE NDI = 1 "
+    #     sentencia = "UPDATE user SET fullname = (name) WHERE NDI = 1".format(name)
+    #     cursor.execute(sentencia)
+    #     db.connection.commit()
+    # return render_template("profile/profile.html")
+
+
+    # numerodocumento = request.form['NDI']    
+    # name = request.form['fullname']
+    # print(name, numerodocumento)
+    # try:
+    #     # Definimos cursor para la sentencia SQL, la cual obtendremos todos los datos del usuario.
+    #     cursor = db.connection.cursor()
+    #     sql = "UPDATE user SET fullname = '{}' WHERE NDI = 1".format(name)
+    #     data = (name)
+    #     cursor.execute(sql, data)
+    #     db.connection.commit()
+    #     print(request.form['NDI'])
+    #     print(request.form['fullname'])
+    #     return render_template("profile/profile.html")
+    # except Exception as ex:
+    #     raise Exception(ex)
+
+
+    # numerodocumento = request.form['NDI']    
+    # nombre = request.form['fullname']
+    # try:
+    #     # Definimos cursor para la sentencia SQL, la cual obtendremos todos los datos del usuario.
+    #     cursor = db.connection.cursor()
+    #     # sql = "UPDATE user SET fullname = 'narsiso' WHERE id = 1 "
+    #     sql = (""" UPDATE login_python SET fullname = %s
+    #             WHERE id = 1 """, (nombre, numerodocumento))
+    #     cursor.execute(sql)
+    #     db.connection.commit()
+    #     print(request.form['NDI'])
+    #     print(request.form['fullname'])
+    #     return render_template("profile/profile.html")
+    # except Exception as ex:
+    #     raise Exception(ex)
+
     #--------------------------------------------------------------------------------------------------
-    numerodocumento = request.form['NDI']
-    name = request.form['fullname']
-    if name and numerodocumento:
+
+    # Presentamos el bloque try, el cual pasara a ejecutar la sentencia "SQL".
+    try:
+        # Definimos cursor para la sentencia SQL, la cual obtendremos todos los datos del usuario.
+        nombre= request.form['fullname']
+        direccion= request.form['Direccion']
+        Telefono = request.form['Telefono']
+        Empresa = request.form['Empresa']
+        Cargo = request.form['Cargo']
+        Area = request.form['Area']
+        Fecha_nacimiento = request.form['FDN']
+        NumDoc = request.form['NDI']
+        Email = request.form['Email']
+
+        curso = (nombre, direccion, Telefono, Empresa, Cargo, Area, Fecha_nacimiento, NumDoc, Email)
+
         cursor = db.connection.cursor()
-        #sql = "UPDATE user SET fullname = 'diomedes' WHERE NDI = %s "
-        sentencia = "UPDATE user SET fullname = (name) WHERE NDI = 1".format(name)
-        data = (name, numerodocumento)
-        cursor.execute(sentencia, data)
+        sql="""UPDATE user SET fullname = '{0}', Direccion = '{1}', Telefono= '{2}', Empresa= '{3}', Cargo= '{4}', 
+                Area_locativa= '{5}', Fecha_nacimiento = '{6}', NDI= '{7}', Email= '{8}' WHERE id = 1"""
+        cursor.execute(sql.format(curso[0],curso[1],curso[2],curso[3],curso[4],curso[5],curso[6],curso[7],curso[8]))
+        # sql = "UPDATE user SET fullname = 'mandragora' WHERE id = 1 "
+        # cursor.execute(sql)
         db.connection.commit()
-    return render_template("profile/profile.html")
-
-# <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-#             <div class="modal-dialog">
-#                 <div class="modal-content">
-#                     <!-- Encabezado del modal donde tenemos el titulo de "Actualizar datos" -->
-#                     <div class="modal-header">
-#                         <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar datos</h1>
-#                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-#                     </div>
-
-#                     <!-- Cuerpo del modal donde encontramos el formualrio con los datos del usario -->
-#                     <div class="modal-body">
-#                         <form action="/edit" method="POST">
-#                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-#                             <label for="">Nombrecompleto</label>
-#                             <input type="text" class="form-control mb-3" name="fullname" placeholder="{{ current_user.fullname}}">
-#                             <label for="">Direccion</label>
-#                             <input type="text" class="form-control mb-3" placeholder="{{ current_user.Direccion}}">
-#                             <label for="">Telefono</label>
-#                             <input type="text" class="form-control mb-3" placeholder="{{ current_user.Telefono}}">
-#                             <label for="">Cargo</label>
-#                             <input type="text" class="form-control mb-3" placeholder="{{ current_user.Cargo}}">
-#                             <label for="">Area locativa</label>
-#                             <input type="text" class="form-control mb-3" placeholder="{{ current_user.Area}}">
-#                             <label for="">Fecha de nacimiento</label>
-#                             <input type="text" class="form-control mb-3" placeholder="{{ current_user.Fecha_nacimiento}}">
-#                             <label for="">Número de documento</label>
-#                             <input type="text" class="form-control mb-3" placeholder="{{ current_user.NDI}}">
-#                             <label for="">Correo electronico</label>
-#                             <input type="text" class="form-control mb-3" placeholder="{{ current_user.Email}}">
-
-#                             <!-- Botón donde podremos subir el archivo con la foto del perfil -->
-#                             <div class="mb-3">
-#                                 <label for="formFileSm" class="form-label"></label>
-#                                 <input class="form-control form-control-sm" id="formFileSm" type="file">
-#                             </div>
-#                             <div class="modal-footer">
-#                                 <!-- Botón para cancelar o cerrar el modal-->
-#                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
-#                                 <!-- Botón para guardar cambios y actualizar datos-->
-#                                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
-#                             </div>
-#                         </form>
-#                     </div>
-#                     <!--
-#                     <div class="modal-footer">
-
-
-#                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
-
-#                         <button type="button" class="btn btn-primary">Guardar cambios</button>
-#                     </div>
-#                     -->
-#                 </div>
-#             </div>
-#         </div>
+        return render_template("profile/profile.html")
+    except Exception as ex:
+         raise Exception(ex)
 # -----------------------------------------------------
 # Apartado de las rutas principales con sus respectivas caracteristicas.
 # -----------------------------------------------------

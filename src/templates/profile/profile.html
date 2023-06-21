@@ -64,7 +64,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
                         <li><i class="icono fas fa-map-marker-alt"></i>{{ current_user.Area}}.</li>
                         <li><i class="icono fas fa-calendar-alt"></i>{{ current_user.Fecha_nacimiento}}.</li>
                         <li><i class="icono fa-solid fa-id-card"></i>{{ current_user.NDI}}.</li>
-                        <li><i class="icono fa-solid fa-envelope"></i>{{ current_user.Email}}.</li>
+                        <li><i class="icono fa-solid fa-envelope"></i>{{ current_user.Email}}</li>
                     </ul>
                 </div>
                 <!-- Fin sección del footer del apartado de los datos del usario donde se encuentran todos los datos de este mismo -->
@@ -114,19 +114,21 @@ poder personalizar y ahorrar lineas de codigo en los modulos
                             <label for="">Nombre completo</label>
                             <input type="text" class="form-control mb-3" name="fullname" value="{{current_user.fullname}}">
                             <label for="">Direccion</label>
-                            <input type="text" class="form-control mb-3" value="{{ current_user.Direccion}}">
+                            <input type="text" class="form-control mb-3" name="Direccion" value="{{ current_user.Direccion}}">
                             <label for="">Telefono</label>
-                            <input type="text" class="form-control mb-3" value="{{ current_user.Telefono}}">
+                            <input type="text" class="form-control mb-3" name="Telefono" value="{{ current_user.Telefono}}">
                             <label for="">Cargo</label>
-                            <input type="text" class="form-control mb-3" value="{{ current_user.Cargo}}">
+                            <input type="text" class="form-control mb-3" name="Empresa" value="{{ current_user.Empresa}}">
+                            <label for="">Empresa</label>
+                            <input type="text" class="form-control mb-3" name="Cargo" value="{{ current_user.Cargo}}">
                             <label for="">Area locativa</label>
-                            <input type="text" class="form-control mb-3" value="{{ current_user.Area}}">
+                            <input type="text" class="form-control mb-3" name="Area" value="{{ current_user.Area}}">
                             <label for="">Fecha de nacimiento</label>
-                            <input type="text" class="form-control mb-3" value="{{ current_user.Fecha_nacimiento}}">
+                            <input type="text" class="form-control mb-3" name="FDN" value="{{ current_user.Fecha_nacimiento}}">
                             <label for="">Número de documento</label>
                             <input type="text" class="form-control mb-3" name="NDI" value="{{ current_user.NDI}}">
                             <label for="">Correo electronico</label>
-                            <input type="text" class="form-control mb-3" value="{{ current_user.Email}}">
+                            <input type="text" class="form-control mb-3" name="Email" value="{{ current_user.Email}}">
 
                             <!-- Botón donde podremos subir el archivo con la foto del perfil -->
                             <div class="mb-3">
