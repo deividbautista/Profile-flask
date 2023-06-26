@@ -180,7 +180,8 @@ def update():
 
     # Presentamos el bloque try, el cual pasara a ejecutar la sentencia "SQL".
     try:
-        # Definimos cursor para la sentencia SQL, la cual obtendremos todos los datos del usuario.
+        # Definimos todos los paremtros que recolectamos del formulario, y definimos una variable para utilizar 
+        # los datos en la consulta posterior de MySql.
         nombre= request.form['fullname']
         direccion= request.form['Direccion']
         Telefono = request.form['Telefono']
@@ -191,11 +192,15 @@ def update():
         NumDoc = request.form['NDI']
         Email = request.form['Email']
 
+        # Definimos un array llamado curso para poder utilizar las vriables anteriormente definidas.
         curso = (nombre, direccion, Telefono, Empresa, Cargo, Area, Fecha_nacimiento, NumDoc, Email)
 
+        # Definimos cursor con la conexión de la based de datos para poder realizar la consulta.
         cursor = db.connection.cursor()
+        # Veremos la siguiente consultaa de tipo UPDATE, en el que le pasamos los parametros para insertar los datos que deseamos actualizar.
         sql="""UPDATE user SET fullname = '{0}', Direccion = '{1}', Telefono= '{2}', Empresa= '{3}', Cargo= '{4}', 
                 Area_locativa= '{5}', Fecha_nacimiento = '{6}', NDI= '{7}', Email= '{8}' WHERE id = 1"""
+        # Usamos el execute para poder realizar la consulta anteriormente mostrada.
         cursor.execute(sql.format(curso[0],curso[1],curso[2],curso[3],curso[4],curso[5],curso[6],curso[7],curso[8]))
         # sql = "UPDATE user SET fullname = 'mandragora' WHERE id = 1 "
         # cursor.execute(sql)
