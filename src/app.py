@@ -22,6 +22,15 @@ from models.entities.User import User
 
 from models.entities.User import *
 
+#Para subir archivo tipo foto al servidor
+from werkzeug.utils import secure_filename 
+
+#El módulo os en Python proporciona los detalles y la funcionalidad del sistema operativo.
+import os 
+
+#Modulo para obtener la ruta o directorio
+from os import path 
+
 # -----------------------------------------------------
 # Sección donde inicializaremos o definiremos las instancias principales.
 # -----------------------------------------------------
@@ -63,7 +72,7 @@ def login():
 
         # Definir la instancia usuarios, la cual le pasamos los parametros del "NDI" y el "password".
         user = User(
-            0, request.form["NDI"], request.form["password"], 0, 0, 0, 0, 0, 0, 0, 0
+            0, request.form["NDI"], request.form["password"], 0, 0, 0, 0, 0, 0, 0, 0, 0
         )
 
         # Funcion para comprovar el logged del usuario, osea verificar que es una cuenta existente.
@@ -101,24 +110,6 @@ def login():
 # -----------------------------------------------------
 # Sección principal de actualización de usuario.
 # -----------------------------------------------------
-# @app.route('/edit/<string:id>', methods=['POST'])
-
-# def Update(id):
-
-#     if request.method == 'POST':
-
-#         conexion_MySQLdb = config()
-#         cur = conexion_MySQLdb.cursor()
-#         cur.execute ("""UPDATE users SET NDI = %s, password = %s, fullname = %s, Direccion = %s, Telefono = %s, Empresa = %s, Cargo = %s, Area_locativa, Email = %s, fecha_nacimiento = %s FROM user
-#             WHERE NDI = '{}' """.format(id))
-
-#         conexion_MySQLdb.commit()
-#         cur.close()
-#         return redirect(url_for('home'))
-#     else:
-#         #Para dar retorno a nuestra ruta principal.
-#         return render_template('profile/profile.html')
-
 
 @app.route("/edit", methods=["POST"])
 def update():
@@ -180,6 +171,38 @@ def update():
 
     # Presentamos el bloque try, el cual pasara a ejecutar la sentencia "SQL".
     try:
+        if request.method == 'POST':
+            if(request.files['archivo']):
+
+                NumDoc = request.form['NDI']
+
+                #Script para archivo
+                nombreArchivo = NumDoc
+                file     = request.files['archivo']
+                basepath = path.dirname (__file__) #La ruta donde se encuentra el archivo actual
+                
+                #capturando extensión del archivo ejemplo: (.png, .jpg, .pdf ...etc)
+                extension           = ('.jpg')
+                nuevoNombreFile     = nombreArchivo + extension
+        
+                upload_path = path.join (basepath, 'static/img/avatars', nuevoNombreFile) 
+                file.save(upload_path)
+
+                # Definimos cursor con la conexión de la based de datos para poder realizar la consulta.
+                cursor = db.connection.cursor()
+                # Veremos la siguiente consultaa de tipo UPDATE, en el que le pasamos los parametros para insertar los datos que deseamos actualizar.
+                sql="""UPDATE users SET Nombre_img = '{1}'  WHERE NDI = {0}"""
+
+                Atr = (NumDoc, nuevoNombreFile)
+
+                # Usamos el execute para poder realizar la consulta anteriormente mostrada.
+                cursor.execute(sql.format(Atr[0],Atr[1]))
+
+                # sql = "UPDATE user SET fullname = 'mandragora' WHERE id = 1 "
+
+                # cursor.execute(sql)
+                db.connection.commit()
+                
         # Definimos todos los paremtros que recolectamos del formulario, y definimos una variable para utilizar 
         # los datos en la consulta posterior de MySql.
         nombre= request.form['fullname']
@@ -198,16 +221,19 @@ def update():
         # Definimos cursor con la conexión de la based de datos para poder realizar la consulta.
         cursor = db.connection.cursor()
         # Veremos la siguiente consultaa de tipo UPDATE, en el que le pasamos los parametros para insertar los datos que deseamos actualizar.
-        sql="""UPDATE user SET fullname = '{0}', Direccion = '{1}', Telefono= '{2}', Empresa= '{3}', Cargo= '{4}', 
-                Area_locativa= '{5}', Fecha_nacimiento = '{6}', NDI= '{7}', Email= '{8}' WHERE id = 1"""
+        sql="""UPDATE users SET fullname = '{0}', Direccion = '{1}', Telefono= '{2}', Empresa= '{3}', Cargo= '{4}', 
+                Area_locativa= '{5}', Fecha_nacimiento = '{6}', NDI= '{7}', Email= '{8}' WHERE NDI = {7}"""
         # Usamos el execute para poder realizar la consulta anteriormente mostrada.
         cursor.execute(sql.format(curso[0],curso[1],curso[2],curso[3],curso[4],curso[5],curso[6],curso[7],curso[8]))
         # sql = "UPDATE user SET fullname = 'mandragora' WHERE id = 1 "
         # cursor.execute(sql)
         db.connection.commit()
+
         return render_template("profile/profile.html")
     except Exception as ex:
          raise Exception(ex)
+    
+
 # -----------------------------------------------------
 # Apartado de las rutas principales con sus respectivas caracteristicas.
 # -----------------------------------------------------

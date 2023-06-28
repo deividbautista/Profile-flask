@@ -25,7 +25,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
                 <div class="perfil-usuario-bio">
                     <!-- Division que contiene la foto de perfil del usario-->
                     <div class="perfil-usuario-avatar">
-                        <img src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/7/6/5/a/765afb557fabd371fd0a3ba386728100.jpg"
+                        <img src="static/img/avatars/{{ current_user.Nombre_img}}"
                             alt="img-avatar">
                         <button type="button" class="boton-avatar">
                             <i class="fas fa-image"></i>
@@ -109,7 +109,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
 
                     <!-- Cuerpo del modal donde encontramos el formualrio con los datos del usario -->
                     <div class="modal-body">
-                        <form action="/edit" method="POST">
+                        <form action="/edit" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <label for="">Nombre completo</label>
                             <input type="text" class="form-control mb-3" name="fullname" value="{{current_user.fullname}}">
@@ -133,7 +133,7 @@ poder personalizar y ahorrar lineas de codigo en los modulos
                             <!-- Botón donde podremos subir el archivo con la foto del perfil -->
                             <div class="mb-3">
                                 <label for="formFileSm" class="form-label"></label>
-                                <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                <input class="form-control form-control-sm" id="formFileSm" type="file" name="archivo">
                             </div>
                             <div class="modal-footer">
                                 <!-- Botón para cancelar o cerrar el modal-->
@@ -145,16 +145,6 @@ poder personalizar y ahorrar lineas de codigo en los modulos
                             </div>
                         </form>
                     </div>
-                    <!--
-                                 <div class="modal-footer">
-            
-            
-                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            
-            
-                                     <button type="button" class="btn btn-primary">Guardar cambios</button>
-                                 </div>
-                                 -->
                 </div>
             </div>
         </div>
